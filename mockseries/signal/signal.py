@@ -33,6 +33,7 @@ class Signal:
         granularity: timedelta,
         period: timedelta,
         start_time: Optional[datetime] = None,
+        color
     ) -> None:
         start_time = start_time if start_time else datetime.now()
         ts_index = datetime_range(
@@ -43,11 +44,12 @@ class Signal:
         plot_timeseries(
             ts_index,
             self.generate(ts_index),
+            color
             # todo add graph_title once self.name() has been implemented
         )
 
     def preview_year(
-        self, num_years: int = 1, start_time: Optional[datetime] = None
+        self, num_years: int = 1, start_time: Optional[datetime] = None,color
     ) -> None:
         """Plot one year of signal with a day granularity.
 
@@ -60,6 +62,7 @@ class Signal:
             granularity=timedelta(days=1),
             period=num_years * timedelta(days=365.25),
             start_time=start_time,
+            color=color
         )
 
     def preview_month(
