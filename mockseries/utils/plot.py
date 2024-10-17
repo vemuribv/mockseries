@@ -13,6 +13,7 @@ def plot_timeseries(
     titles: Optional[Union[str, List[str]]] = None,
     graph_title: Optional[str] = None,
     save_path: Optional[str] = None,
+    color = 'blue',
 ) -> None:
     """Plots timeseries.
 
@@ -43,7 +44,7 @@ def plot_timeseries(
     with plt.style.context("bmh"):
         mpl.rcParams["axes.facecolor"] = "white"
         for values, title in zip(timeseries, titles):
-            plt.plot(time_points, values, label=title)
+            plt.plot(time_points, values, label=title,color=color)
 
         if graph_title:
             plt.title(graph_title)
