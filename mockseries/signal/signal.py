@@ -32,8 +32,8 @@ class Signal:
         self,
         granularity: timedelta,
         period: timedelta,
-        start_time: Optional[datetime] = None,
-        color
+        color = None,
+        start_time: Optional[datetime] = None
     ) -> None:
         start_time = start_time if start_time else datetime.now()
         ts_index = datetime_range(
